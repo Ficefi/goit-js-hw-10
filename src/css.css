@@ -8,19 +8,22 @@
     font-size: 20px;
 }
 
+.breed-select{
+  width: 200px;
+}
+
 .cat-info{
   margin: 20px 0 40px 0;
   overflow: hidden;
   width: 100%;
-
 }
 
 .image{
-  float: left;
   width: 400px;
   height: 300px;
-  object-fit: cover;
   margin-right: 40px;
+  float: left;
+  object-fit: cover;
 }
 
 .loader {

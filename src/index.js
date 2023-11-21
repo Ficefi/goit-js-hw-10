@@ -1,3 +1,4 @@
+import SlimSelect from 'slim-select';
 import Notiflix from 'notiflix';
 import { fetchBreeds, fetchImages } from './cat-api';
 
@@ -5,7 +6,9 @@ const breed = document.querySelector('.breed-select');
 const div = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader')
 
+loader.hidden = true
 breed.addEventListener('change', event => {
+ 
   loader.hidden = false
   div.hidden = true
   const breedId = event.target.value;
@@ -31,6 +34,9 @@ const renderOptions = breeds => {
     })
     .join();
   breed.insertAdjacentHTML('beforeend', markup);
+  new SlimSelect({
+    select: '#single'
+  }) 
 };
 
 const renderBreedDesc = breed => {
