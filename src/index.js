@@ -1,23 +1,23 @@
-import SlimSelect from 'slim-select';
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 import { fetchBreeds, fetchImages } from './cat-api';
 
 const breed = document.querySelector('.breed-select');
 const div = document.querySelector('.cat-info');
-const loader = document.querySelector('.loader')
+const loader = document.querySelector('.loader');
 
-loader.hidden = true
+loader.hidden = true;
 breed.addEventListener('change', event => {
- 
-  loader.hidden = false
-  div.hidden = true
+  loader.hidden = false;
+  div.hidden = true;
   const breedId = event.target.value;
   fetchImages(breedId)
     .then(breeds => renderBreedDesc(breeds))
     .catch(error => err())
     .finally(() => {
-      loader.hidden = true
-      div.hidden = false
+      loader.hidden = true;
+      div.hidden = false;
     });
 });
 
@@ -35,8 +35,8 @@ const renderOptions = breeds => {
     .join();
   breed.insertAdjacentHTML('beforeend', markup);
   new SlimSelect({
-    select: '#single'
-  }) 
+    select: '#single',
+  });
 };
 
 const renderBreedDesc = breed => {
